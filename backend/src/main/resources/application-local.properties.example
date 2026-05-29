@@ -1,0 +1,3 @@
+spring.data.mongodb.uri=mongodb://localhost:27017/YOUR_DB_NAME
+jwt.secret=YOUR_SECRET_KEY_HERE
+jwt.expiration=86400000

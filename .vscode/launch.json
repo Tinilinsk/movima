@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Backend",
+      "request": "launch",
+      "mainClass": "com.taskmanager.backend.BackendApplication",
+      "vmArgs": "-Dspring.profiles.active=local"
+    }
+  ]
+}
