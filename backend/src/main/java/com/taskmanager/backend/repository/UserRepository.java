@@ -8,5 +8,5 @@ import com.taskmanager.backend.model.User;
 
 public interface UserRepository extends MongoRepository<User, String>{
     Optional<User> findByEmail(String email);
-    boolean exexistsByEmail(String email);
+    boolean existsByEmail(String email);
 }
