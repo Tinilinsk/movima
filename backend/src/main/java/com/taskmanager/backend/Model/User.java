@@ -1,4 +1,4 @@
-package com.taskmanager.backend.Model;
+package com.taskmanager.backend.model;
 
 import java.time.LocalDateTime;
 
