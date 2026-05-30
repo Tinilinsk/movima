@@ -1,24 +1,43 @@
+<form #dfeefe="ngForm" (ngSubmit)="submit(dfeefe)">
+    <div class="mb-3">
+    <label for="" class="form-label">Name</label>
+    <input
+        #name="ngModel"
+        type="text"
+        class="form-control"
+        name="name"
+        id="name"
+        aria-describedby="name"
+        placeholder="Name"
+        ngModel
+    />
+</div>
+
 <div class="mb-3">
     <label for="" class="form-label">Email</label>
     <input
+        #email="ngModel"
         type="email"
         class="form-control"
-        name=""
-        id=""
+        name="email"
+        id="email"
         aria-describedby="emailHelpId"
         placeholder="abc@mail.com"
+        ngModel
     />
-    <small id="emailHelpId" class="form-text text-body-secondary"
-        >Help text</small
-    >
 </div>
 <div class="mb-3">
     <label for="" class="form-label">Password</label>
     <input
+        #password="ngModel"
         type="password"
         class="form-control"
-        name=""
-        id=""
-        placeholder=""
+        name="password"
+        id="password"
+        placeholder="ABCdef123"
+        ngModel
     />
 </div>
+<button class="btn btn-primary" type="submit">Enter</button>
+</form>
+
