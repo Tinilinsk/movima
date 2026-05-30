@@ -10,11 +10,11 @@ export class Api {
   constructor(private http: HttpClient) {}
 
   registerUser(data: any) {
-    this.http.post(`${this.url}/api/auth/register`, data);
+    return this.http.post(`${this.url}/api/auth/register`, data);
   }
 
   loginUser(data: any) {
-    this.http.post(`${this.url}/api/auth/login`, data)
+    return this.http.post(`${this.url}/api/auth/login`, data)
   }
-  
+
 }
