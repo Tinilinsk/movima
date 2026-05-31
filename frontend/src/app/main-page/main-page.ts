@@ -12,7 +12,7 @@ export class MainPage {
 
   }
   info() {
-    console.log(localStorage.getItem('token'))
+    console.log(this.auth.getToken())
   }
 
   logout() {
