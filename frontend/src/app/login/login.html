@@ -1,51 +1,71 @@
-<form #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
-    <div class="mb-3">
-    <label for="" class="form-label">Email</label>
-    <input
+<div class="brand">
+  <div class="brand-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+      <line x1="7" y1="2" x2="7" y2="22"/>
+      <line x1="17" y1="2" x2="17" y2="22"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <line x1="2" y1="7" x2="7" y2="7"/>
+      <line x1="2" y1="17" x2="7" y2="17"/>
+      <line x1="17" y1="17" x2="22" y2="17"/>
+      <line x1="17" y1="7" x2="22" y2="7"/>
+    </svg>
+  </div>
+  <h1>movima</h1>
+  <p>Your cozy movie night journal.</p>
+</div>
+
+<div class="card">
+  <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
+    <div class="field">
+      <label>Email</label>
+      <input
         #email="ngModel"
         type="email"
-        class="form-control"
         name="email"
         id="email"
-        aria-describedby="emailHelpId"
-        placeholder="abc@mail.com"
+        placeholder="you@example.com"
         ngModel
         required
         email="true"
-    />
-</div>
-        @if (email.invalid && (email.dirty || email.touched)) {
-        <div class="alert alert-danger" role="alert">
-            @if(email.hasError('required'))
-             {<strong>Email is required</strong>}
-            @if (email.hasError('email')) 
-            {<div>Provide real email</div>}</div>
-    }
-<div class="mb-3">
-    <label for="" class="form-label">Password</label>
-    <input
+      />
+      @if (email.invalid && (email.dirty || email.touched)) {
+        <div class="field-error show">
+          @if (email.hasError('required')) { Email is required }
+          @if (email.hasError('email')) { Provide a real email }
+        </div>
+      }
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <input
         #password="ngModel"
         type="password"
-        class="form-control"
         name="password"
         id="password"
-        placeholder=""
+        placeholder="••••••••"
         ngModel
         required
         minlength="8"
-    />
-        @if (password.invalid && (password.dirty || password.touched)) {
-        <div class="alert alert-danger" role="alert">
-            @if(password.hasError('required'))
-             {<strong>Password is required</strong>}
-            @if (password.hasError('minlength')) 
-            {<div>Password must be at least 8 characters long.</div>}</div>
-    }
-    @if (invalid) {
-        <p class="text-danger">Invalid email or password. Try again!</p>
-    }
-</div>
-<button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Sing in</button>
-</form>
-<a routerLink="/registration">New here? Create an account</a>
+      />
+      @if (password.invalid && (password.dirty || password.touched)) {
+        <div class="field-error show">
+          @if (password.hasError('required')) { Password is required }
+          @if (password.hasError('minlength')) { Password must be at least 8 characters long. }
+        </div>
+      }
+      @if (invalid) {
+        <p class="form-error show">Invalid email or password. Try again!</p>
+      }
+    </div>
 
+    <button [disabled]="loginForm.invalid" class="submit-btn" type="submit">
+      Sign in
+    </button>
+  </form>
+
+  <div class="footer-links">
+    <a routerLink="/registration">New here? <span class="accent">Create an account</span></a>
+  </div>
+</div>
