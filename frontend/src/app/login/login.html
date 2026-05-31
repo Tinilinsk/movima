@@ -41,6 +41,9 @@
             @if (password.hasError('minlength')) 
             {<div>Password must be at least 8 characters long.</div>}</div>
     }
+    @if (invalid) {
+        <p class="text-danger">Invalid email or password. Try again!</p>
+    }
 </div>
 <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Sing in</button>
 </form>
