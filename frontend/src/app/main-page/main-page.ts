@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-main-page',
@@ -7,7 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './main-page.css',
 })
 export class MainPage {
-   
+  constructor(private auth: Auth) {
+
+  }
+  info() {
+    console.log(localStorage.getItem('token'))
+  }
+
+  logout() {
+    this.auth.logoutUser();
+   }
 }
-console.log(localStorage.getItem('token'));
+
 

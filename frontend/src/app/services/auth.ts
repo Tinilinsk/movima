@@ -19,4 +19,8 @@ export class Auth {
     return this.http.post<{token: string}>(`${this.url}/api/auth/login`, data).pipe(tap(response => 
       {localStorage.setItem('token', response.token)}));
   }
+
+  logoutUser() {
+    localStorage.removeItem('token')
+  }
 }
