@@ -15,9 +15,6 @@ export class Registration {
 
         constructor(private ayth: Auth) {
     }
-    navigate() {
-      this.router.navigate(['/home']);
-    }
     
     submit(form: any) {
       const value = form.value;
