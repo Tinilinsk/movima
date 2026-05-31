@@ -64,6 +64,9 @@
             @if (password.hasError('minlength')) 
             {<div>Password must be at least 8 characters long.</div>}</div>
     }
+    @if (invalid) {
+        <p class="text-danger">This email already used</p>
+    }
 </div>
 <button [disabled]="registrationForm.invalid" class="btn btn-primary" type="submit">Create account</button>
 </form>
