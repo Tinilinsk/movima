@@ -12,7 +12,10 @@ export class Auth {
   constructor(private http: HttpClient) {}
 
   registerUser(data: any) {
-    return this.http.post(`${this.url}/api/auth/register`, data);
+    return this.http.post<{token: string}>(`${this.url}/api/auth/register`, data)
+    .pipe(tap(response => 
+    {localStorage.setItem('token', response.token)}
+    ));
   }
 
   loginUser(data: any) {
