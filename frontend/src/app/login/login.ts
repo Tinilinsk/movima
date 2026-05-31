@@ -25,7 +25,7 @@ export class Login {
     this.auth.loginUser(value).subscribe({
         next: (res) => {
           console.log("Succeses login")
-          this.router.navigate(['home'])
+          this.router.navigateByUrl('/')
         },
         error: (err) => {
           console.log("Error: " + err)

@@ -20,7 +20,7 @@ export class Registration {
       const value = form.value;
       this.ayth.registerUser(value).subscribe({
         next: (res) => {
-          this.router.navigate(['home'])
+          this.router.navigateByUrl('/')
         },
         error: (err) => {
           console.log("Error: " + err)
