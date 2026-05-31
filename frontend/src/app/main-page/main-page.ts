@@ -17,6 +17,7 @@ export class MainPage {
 
   logout() {
     this.auth.logoutUser();
+    window.location.reload();
    }
 }
 
