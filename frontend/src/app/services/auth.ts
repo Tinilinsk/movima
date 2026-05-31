@@ -30,4 +30,8 @@ export class Auth {
   getToken() {
     return localStorage.getItem('token');
   }
+
+  isLoggedIn() {
+    return !!this.getToken();
+  }
 }
