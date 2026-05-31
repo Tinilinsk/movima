@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './main-page.html',
   styleUrl: './main-page.css',
 })
-export class MainPage {}
+export class MainPage {
+   
+}
+console.log(localStorage.getItem('token'));
+
