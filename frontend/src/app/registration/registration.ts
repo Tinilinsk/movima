@@ -11,18 +11,15 @@ import { inject } from '@angular/core';
   styleUrl: './registration.css',
 })
 export class Registration {
-  private router = inject(Router);
+    private router = inject(Router);
 
-        constructor(private ayth: Auth) {
+    constructor(private ayth: Auth) {
+
     }
-    
     submit(form: any) {
       const value = form.value;
-      console.log(value)
-
       this.ayth.registerUser(value).subscribe({
         next: (res) => {
-          console.log("Added new user")
           this.router.navigate(['home'])
         },
         error: (err) => {
