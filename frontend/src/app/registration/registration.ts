@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Auth } from '../services/auth';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-registration',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './registration.html',
   styleUrl: './registration.css',
 })
