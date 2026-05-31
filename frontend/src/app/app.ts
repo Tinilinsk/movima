@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Api } from './services/api';
+import { Auth } from './services/auth';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +11,14 @@ import { Api } from './services/api';
   styleUrl: './app.css'
 })
 export class App {
-      constructor(private api: Api) {
+      constructor(private ayth: Auth) {
     }
 
     submit(form: any) {
       const value = form.value;
       console.log(value)
 
-      this.api.registerUser(value).subscribe({
+      this.ayth.registerUser(value).subscribe({
         next: (res) => {
           console.log("Added new user")
         },
