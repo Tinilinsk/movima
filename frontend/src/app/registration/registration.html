@@ -39,7 +39,7 @@
         @if (email.invalid && (email.dirty || email.touched)) {
         <div class="alert alert-danger" role="alert">
             @if(email.hasError('required'))
-             {<strong>Name is required</strong>}
+             {<strong>Email is required</strong>}
             @if (email.hasError('email')) 
             {<div>Provide real email</div>}</div>
     }
@@ -60,7 +60,7 @@
     @if (password.invalid && (password.dirty || password.touched)) {
         <div class="alert alert-danger" role="alert">
             @if(password.hasError('required'))
-             {<strong>Name is required</strong>}
+             {<strong>Password is required</strong>}
             @if (password.hasError('minlength')) 
             {<div>Password must be at least 8 characters long.</div>}</div>
     }
