@@ -1,0 +1,30 @@
+<form #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
+    <div class="mb-3">
+    <label for="" class="form-label">Email</label>
+    <input
+        #email="ngModel"
+        type="email"
+        class="form-control"
+        name="email"
+        id="email"
+        aria-describedby="emailHelpId"
+        placeholder="abc@mail.com"
+        ngModel
+    />
+</div>
+<div class="mb-3">
+    <label for="" class="form-label">Password</label>
+    <input
+        #password="ngModel"
+        type="password"
+        class="form-control"
+        name="password"
+        id="password"
+        placeholder=""
+        ngModel
+    />
+</div>
+<button type="submit" class="btn btn-primary">Sing in</button>
+</form>
+
+
