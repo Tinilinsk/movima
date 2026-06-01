@@ -11,9 +11,6 @@ export class MainPage {
   constructor(private auth: Auth) {
 
   }
-  info() {
-    console.log(this.auth.getToken())
-  }
 
   logout() {
     this.auth.logoutUser();
