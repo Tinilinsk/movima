@@ -11,6 +11,6 @@ export class Movie {
   constructor(private http: HttpClient) {}
   
   getAllMovies() {
-    return this.http.get(`${this.url}/api/movies`)
+    return this.http.get<any[]>(`${this.url}/api/movies`)
   }
 }
