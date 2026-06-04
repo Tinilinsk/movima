@@ -1,16 +1,37 @@
-<div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="" />
-    <label class="form-check-label" for=""> Default checkbox </label>
-</div>
-<div class="form-check">
-    <input
-        class="form-check-input"
-        type="checkbox"
-        value=""
-        id=""
-        checked
-    />
-    <label class="form-check-label" for=""> Checked checkbox </label>
+<div class="movie-grid">
+  @for (movie of movies(); track movie.id) {
+    <div class="movie-card">
+      <div class="poster-wrapper">
+        @if (movie.posterUrl) {
+          <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster" />
+        } @else {
+          <div class="no-poster">🎬</div>
+        }
+        <span class="status-badge" [class]="movie.status">
+          {{ movie.status }}
+        </span>
+      </div>
+      
+      <div class="movie-info">
+        <h3 class="movie-title">{{ movie.title }}</h3>
+        <div class="movie-meta">
+          <span class="movie-year">{{ movie.year }}</span>
+          @if (movie.rating) {
+            <span class="movie-rating">⭐ {{ movie.rating }}/10</span>
+          }
+        </div>
+        <div class="genres">
+          @for (genre of movie.genres; track genre) {
+            <span class="genre-tag">{{ genre }}</span>
+          }
+        </div>
+      </div>
+    </div>
+  } @empty {
+    <div class="empty-state">
+      <p>No movies found. Start building your collection!</p>
+    </div>
+  }
 </div>
 <button (click)="logout()">log out</button>
 
