@@ -1,0 +1,60 @@
+<button class="add-btn" (click)="openSheet()">+ Add Movie</button>
+
+<div class="sheet-backdrop" [class.show]="isOpen" (click)="closeSheet()"></div>
+
+<div class="sheet-window" [class.open]="isOpen">
+  <div class="sheet-header">
+    <h2>Add New Movie</h2>
+    <button class="close-btn" (click)="closeSheet()">&times;</button>
+  </div>
+
+  <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" class="sheet-body">
+    <div class="form-group">
+      <label>Movie Title *</label>
+      <input type="text" formControlName="title" placeholder="e.g., Inception" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Release Year *</label>
+        <input type="number" formControlName="year" />
+      </div>
+
+      <div class="form-group">
+        <label>Status *</label>
+        <select formControlName="status">
+          <option value="watchlist">Watchlist</option>
+          <option value="watching">Watching</option>
+          <option value="watched">Watched</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Genres (comma separated)</label>
+      <input type="text" formControlName="genres" placeholder="Sci-Fi, Action, Thriller" />
+    </div>
+
+    <div class="form-group">
+      <label>Poster URL</label>
+      <input type="url" formControlName="posterUrl" placeholder="https://example.com/poster.jpg" />
+    </div>
+
+    @if (movieForm.get('status')?.value === 'watched') {
+      <div class="form-group">
+        <label>Rating (1-10)</label>
+        <input type="number" formControlName="rating" min="1" max="10" placeholder="10" />
+      </div>
+    }
+
+    <div class="form-group">
+      <label>Personal Notes</label>
+      <textarea formControlName="note" rows="3" placeholder="What did you think of it?"></textarea>
+    </div>
+
+    <div class="sheet-footer">
+      <button type="button" class="btn-cancel" (click)="closeSheet()">Cancel</button>
+      <button type="submit" class="btn-submit" [disabled]="movieForm.invalid">Save Movie</button>
+    </div>
+  </form>
+</div>

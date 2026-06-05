@@ -1,0 +1,103 @@
+/* Button to open sheet */
+.add-btn {
+  background: #10ac84;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Dimmed Backdrop */
+.sheet-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.sheet-backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Sliding Window Container */
+.sheet-window {
+  position: fixed;
+  top: 0;
+  right: -450px; /* Hidden off-screen right initially */
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: #1e1e1e;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.5);
+  z-index: 1000;
+  transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.sheet-window.open {
+  right: 0; /* Slides into view */
+}
+
+/* Header layout */
+.sheet-header {
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sheet-header h2 { margin: 0; font-size: 1.4rem; }
+.close-btn {
+  background: none; border: none; color: #888; font-size: 2rem; cursor: pointer;
+}
+
+/* Form structure layout */
+.sheet-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-row { display: flex; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.form-group label { font-size: 0.85rem; color: #aaa; }
+
+/* Input field stylings */
+.sheet-body input, .sheet-body select, .sheet-body textarea {
+  background: #2b2b2b;
+  border: 1px solid #444;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+.sheet-body input:focus, .sheet-body select:focus, .sheet-body textarea:focus {
+  outline: none; border-color: #10ac84;
+}
+
+/* Footer layout configuration */
+.sheet-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.btn-cancel { background: none; border: none; color: #aaa; cursor: pointer; }
+.btn-submit {
+  background: #10ac84; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;
+}
+.btn-submit:disabled { background: #444; color: #777; cursor: not-allowed; }
