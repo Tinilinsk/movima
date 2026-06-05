@@ -20,6 +20,7 @@ export class AddItemSheet {
       genres: [''], // We will split commas into an array on submit
       posterUrl: [''],
       status: ['watchlist', Validators.required],
+      priority: [''],
       rating: [null],
       note: ['']
     });
