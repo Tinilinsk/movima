@@ -68,8 +68,8 @@
                 <span>{{ genre }}</span>
               }
             </div>
-            @if (movie.rating) {
-              <span class="priority-badge high">{{ movie.rating }}/10</span>
+            @if (movie.priority) {
+              <span class="priority-badge high">{{ movie.priority }}</span>
             } @else {
               <span class="priority-badge medium">{{ movie.status }}</span>
             }
