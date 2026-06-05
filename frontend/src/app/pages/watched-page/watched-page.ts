@@ -11,5 +11,14 @@ import { Movie } from '../../services/movie';
 export class WatchedPage {
   movies = signal<any[]>([]);
 
-  constructor(private movie: Movie) {}
+  constructor(private movie: Movie) {
+    this.movie.getStatusMovie("watched").subscribe({
+      next: (data) => {
+        this.movies.set(data);
+      },
+      error: (err) => {
+        console.log("Error" + err)
+      }
+    })
+  }
 }
