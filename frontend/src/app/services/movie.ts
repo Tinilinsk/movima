@@ -17,4 +17,9 @@ export class Movie {
   addMovie(data: any) {
     return this.http.post(`${this.url}`, data);
   }
+
+  getStatusMovie(param: string) {
+    return this.http.get<any[]>(`${this.url}?status=${param}`)
+  }
+  
 }
