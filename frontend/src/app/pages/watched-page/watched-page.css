@@ -1,0 +1,332 @@
+:host {
+  display: block;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 2rem 1.2rem 6rem;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* HEADER */
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.header-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.2rem;
+}
+
+.header-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.italic-pink {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  color: var(--pink);
+}
+
+.header-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.pick-btn {
+  background: var(--pink);
+  color: #1a0d1e;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.pick-btn:hover { opacity: 0.85; }
+
+/* SEARCH */
+.search-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+}
+
+.search-icon { color: var(--text-muted); display: flex; }
+
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.search-input::placeholder { color: var(--text-muted); }
+
+.filter-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.filter-btn:hover { border-color: var(--pink); color: var(--pink); }
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: #1a0d1e;
+  font-weight: 600;
+}
+
+.tab:not(.active):hover {
+  border-color: rgba(244,114,182,0.4);
+  color: var(--text);
+}
+
+/* MOVIE GRID */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.movie-card {
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover { transform: scale(1.02); }
+
+.poster-wrapper {
+  position: relative;
+  aspect-ratio: 2/3;
+  background: var(--surface);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.no-poster {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: var(--surface2);
+}
+
+.card-top-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 0.6rem 0.6rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.card-meta {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.card-meta span {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.card-meta span:not(:last-child)::after {
+  content: '·';
+  margin-left: 0.3rem;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.priority-badge.high {
+  background: var(--pink);
+  color: #1a0d1e;
+}
+
+.priority-badge.medium {
+  background: rgba(244,114,182,0.2);
+  color: var(--pink-light);
+}
+
+/* EMPTY STATE */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2.4rem);
+  max-width: 460px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.7rem 0.5rem;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  transition: color 0.2s;
+}
+
+.nav-item.active { color: var(--pink); }
+.nav-item:hover { color: var(--text); }
+
+/* FAB */
+.fab {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1.5rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: #1a0d1e;
+  font-size: 1.6rem;
+  font-weight: 300;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(244,114,182,0.4);
+  transition: transform 0.2s, opacity 0.2s;
+  z-index: 99;
+}
+
+.fab:hover { transform: scale(1.08); opacity: 0.9; }
