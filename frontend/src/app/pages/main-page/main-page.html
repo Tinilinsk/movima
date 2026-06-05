@@ -119,6 +119,7 @@
     </button>
   </nav>
 
-  <!-- FAB -->
-  <button class="fab">+</button>
+<app-add-item-sheet #movieSheet></app-add-item-sheet>
+
+<button class="fab" (click)="movieSheet.openSheet()">+</button>
 </div>

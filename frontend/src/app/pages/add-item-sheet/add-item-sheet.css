@@ -28,24 +28,33 @@
   pointer-events: auto;
 }
 
-/* Sliding Window Container */
+/* Bottom Sliding Window Panel */
 .sheet-window {
   position: fixed;
-  top: 0;
-  right: -450px; /* Hidden off-screen right initially */
+  bottom: -100%; /* Hidden completely off the bottom of the screen */
+  left: 0;
+  right: 0;
   width: 100%;
-  max-width: 420px;
-  height: 100vh;
+  max-height: 85vh; /* Prevents it from covering 100% of the screen height */
   background: #1e1e1e;
-  box-shadow: -4px 0 24px rgba(0,0,0,0.5);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Smooth slide up transition */
+  transition: bottom 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
   display: flex;
   flex-direction: column;
   color: #fff;
+  
+  /* Gives it beautiful rounded top corners like a premium mobile app drawer */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
+
+/* When the sheet is opened, slide it up to anchor to the bottom edge */
 .sheet-window.open {
-  right: 0; /* Slides into view */
+  bottom: 0; 
 }
 
 /* Header layout */

@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { Auth } from '../../services/auth';
 import { Movie } from '../../services/movie';
+import { AddItemSheet } from '../add-item-sheet/add-item-sheet';
 
 @Component({
   selector: 'app-main-page',
-  imports: [],
+  imports: [AddItemSheet],
   templateUrl: './main-page.html',
   styleUrl: './main-page.css',
 })
