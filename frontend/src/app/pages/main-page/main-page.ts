@@ -2,6 +2,8 @@ import { Component, signal } from '@angular/core';
 import { Auth } from '../../services/auth';
 import { Movie } from '../../services/movie';
 import { AddItemSheet } from '../add-item-sheet/add-item-sheet';
+import { Router } from '@angular/router';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-main-page',
@@ -13,6 +15,8 @@ import { AddItemSheet } from '../add-item-sheet/add-item-sheet';
 export class MainPage {
 
   movies = signal<any[]>([]);
+
+  private router = inject(Router);
 
   constructor(private auth: Auth, private movie: Movie) {
       this.movie.getStatusMovie("watchlist").subscribe({
@@ -26,7 +30,9 @@ export class MainPage {
     });
     }
   
-
+    watchedPage() {
+      this.router.navigate(['/watched'])
+    }
   
 
   logout() {
