@@ -26,6 +26,7 @@ public class Movie {
     private List<String> genres;
     private String posterUrl;
     private String status; // watchlist | watching | watched
+    private String priority;
     private Integer rating;
     private String note;
     private LocalDateTime watchedAt;

@@ -12,6 +12,7 @@ public class MovieRequest {
     private List<String> genres;
     private String posterUrl;
     private String status;
+    private String priority;
     private Integer rating;
     private String note;
     private LocalDateTime watchedAt;
