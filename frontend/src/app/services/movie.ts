@@ -14,4 +14,7 @@ export class Movie {
     return this.http.get<any[]>(`${this.url}`)
   }
 
+  addMovie(data: any) {
+    return this.http.post(`${this.url}`, data);
+  }
 }

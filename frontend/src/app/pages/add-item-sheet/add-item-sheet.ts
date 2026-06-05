@@ -45,13 +45,13 @@ export class AddItemSheet {
       genres: formValue.genres ? formValue.genres.split(',').map((g: string) => g.trim()) : []
     };
 
-    // this.movieService.addMovie(formattedMovie).subscribe({
-    //   next: (newMovie) => {
-    //     console.log('Movie added successfully!', newMovie);
-    //     this.closeSheet(); // Close the drawer on success
-    //     // Optional: Refresh your movie list here
-    //   },
-    //   error: (err) => console.error('Error adding movie', err)
-    // });
+    this.movieService.addMovie(formattedMovie).subscribe({
+      next: (newMovie) => {
+        console.log('Movie added successfully!', newMovie);
+        this.closeSheet(); // Close the drawer on success
+        // Optional: Refresh your movie list here
+      },
+      error: (err) => console.error('Error adding movie', err)
+    });
   }
 }
