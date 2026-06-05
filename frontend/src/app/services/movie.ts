@@ -6,11 +6,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class Movie {
-  private url = "http://localhost:8080";
+  private url = "http://localhost:8080/api/movies";
 
   constructor(private http: HttpClient) {}
   
   getAllMovies() {
-    return this.http.get<any[]>(`${this.url}/api/movies`)
+    return this.http.get<any[]>(`${this.url}`)
   }
+
 }
