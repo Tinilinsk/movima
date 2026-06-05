@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Registration } from './registration/registration';
+import { Registration } from './pages/registration/registration';
 
 
 @Component({
