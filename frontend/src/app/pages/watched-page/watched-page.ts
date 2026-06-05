@@ -1,6 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { AddItemSheet } from '../add-item-sheet/add-item-sheet';
 import { Movie } from '../../services/movie';
+import { Router } from '@angular/router';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-watched-page',
@@ -11,6 +13,8 @@ import { Movie } from '../../services/movie';
 export class WatchedPage {
   movies = signal<any[]>([]);
 
+  private router = inject(Router);
+
   constructor(private movie: Movie) {
     this.movie.getStatusMovie("watched").subscribe({
       next: (data) => {
@@ -20,5 +24,9 @@ export class WatchedPage {
         console.log("Error" + err)
       }
     })
+  }
+
+  homePage() {
+    this.router.navigate(['/'])
   }
 }
