@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { Auth } from '../services/auth';
-import { Movie } from '../services/movie';
+import { Auth } from '../../services/auth';
+import { Movie } from '../../services/movie';
 
 @Component({
   selector: 'app-main-page',

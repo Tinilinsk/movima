@@ -1,29 +1,30 @@
 import { Component } from '@angular/core';
-import { Auth } from '../services/auth';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { inject, ChangeDetectorRef } from '@angular/core';
+import { Auth } from '../../services/auth';
 
 @Component({
-  selector: 'app-registration',
+  selector: 'app-login',
   imports: [FormsModule, RouterLink],
-  templateUrl: './registration.html',
-  styleUrl: './registration.css',
+  templateUrl: './login.html',
+  styleUrl: './login.css',
 })
-export class Registration {
+export class Login {
 
   invalid: boolean = false;
 
   private cdr = inject(ChangeDetectorRef);
 
-    private router = inject(Router);
+  private router = inject(Router);
 
-    constructor(private ayth: Auth) {
+  constructor(private auth: Auth) {
 
-    }
-    submit(form: any) {
-      const value = form.value;
-      this.ayth.registerUser(value).subscribe({
+  }
+
+  submit(form: any) {
+    const value = form.value;
+    this.auth.loginUser(value).subscribe({
         next: (res) => {
           this.invalid = false;
           this.cdr.detectChanges();
