@@ -15,7 +15,7 @@ export class MainPage {
   movies = signal<any[]>([]);
 
   constructor(private auth: Auth, private movie: Movie) {
-      this.movie.getAllMovies().subscribe({
+      this.movie.getStatusMovie("watchlist").subscribe({
       next: (data) => {
         this.movies.set(data);
         console.log("Here is your actual backend data:", this.movies()); 
