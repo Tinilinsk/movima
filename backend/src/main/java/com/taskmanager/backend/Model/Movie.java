@@ -27,6 +27,8 @@ public class Movie {
     private String posterUrl;
     private String status; // watchlist | watching | watched
     private String priority;
+    private String type; // movie, series
+    private String platform; // netflix, prime
     private Integer rating;
     private String note;
     private LocalDateTime watchedAt;

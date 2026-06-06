@@ -59,6 +59,8 @@ public class MovieService {
                 .posterUrl(request.getPosterUrl())
                 .status(request.getStatus() != null ? request.getStatus() : "watchlist")
                 .priority(request.getPriority())
+                .type(request.getType())
+                .platform(request.getPlatform())
                 .rating(request.getRating())
                 .note(request.getNote())
                 .watchedAt(request.getWatchedAt())
@@ -77,6 +79,8 @@ public class MovieService {
         movie.setPosterUrl(request.getPosterUrl());
         movie.setStatus(request.getStatus());
         movie.setPriority(request.getPriority());
+        movie.setType(request.getType());
+        movie.setPlatform(request.getPlatform());
         movie.setRating(request.getRating());
         movie.setNote(request.getNote());
         movie.setWatchedAt(request.getWatchedAt());

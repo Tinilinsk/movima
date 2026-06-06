@@ -13,6 +13,8 @@ public class MovieRequest {
     private String posterUrl;
     private String status;
     private String priority;
+    private String type; // movie, series
+    private String platform; // netflix, prime
     private Integer rating;
     private String note;
     private LocalDateTime watchedAt;
