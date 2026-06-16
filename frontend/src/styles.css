@@ -136,8 +136,16 @@ body {
     font-size: 0.875rem;
     color: var(--text-muted);
     text-decoration: none;
-    &:hover { color: var(--text); }
+    
   }
 
-  .accent { color: var(--pink-light); }
+  p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    
+  }
+
+  .accent { color: var(--pink-light); 
+  &:hover { color: var(--text); }}
 }

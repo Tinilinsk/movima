@@ -110,3 +110,13 @@
   background: #10ac84; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;
 }
 .btn-submit:disabled { background: #444; color: #777; cursor: not-allowed; }
+
+.type {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.type button {
+  flex: 1;
+}
