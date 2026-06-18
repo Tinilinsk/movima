@@ -13,12 +13,19 @@ export class AddItemSheet {
   movieForm: FormGroup;
   isOpen = false; // Controls the visibility of our sheet window
 
+  selectedType: 'movie' | 'series' = 'movie';
+
+  selectType(type: 'movie' | 'series'): void {
+    this.selectedType = type;
+  }
+
   constructor(private fb: FormBuilder, private movieService: Movie) {
     this.movieForm = this.fb.group({
       title: ['', Validators.required],
       year: [new Date().getFullYear(), [Validators.required, Validators.min(1888)]],
       genres: [''], // We will split commas into an array on submit
       posterUrl: [''],
+      type: [''],
       status: ['watchlist', Validators.required],
       priority: [''],
       rating: [null],
@@ -43,7 +50,8 @@ export class AddItemSheet {
     // Convert comma-separated string of genres into an array of strings
     const formattedMovie = {
       ...formValue,
-      genres: formValue.genres ? formValue.genres.split(',').map((g: string) => g.trim()) : []
+      genres: formValue.genres ? formValue.genres.split(',').map((g: string) => g.trim()) : [],
+      type: this.selectedType
     };
 
     this.movieService.addMovie(formattedMovie).subscribe({
