@@ -21,8 +21,7 @@ export class MainPage {
   constructor(private auth: Auth, private movie: Movie) {
       this.movie.getStatusMovie("watchlist").subscribe({
       next: (data) => {
-        this.movies.set(data);
-        console.log("Here is your actual backend data:", this.movies()); 
+        this.movies.set(data); 
       },
       error: (err) => {
         console.error("HTTP Request failed!", err);
