@@ -24,6 +24,7 @@ export class AddItemSheet {
       title: ['', Validators.required],
       year: [new Date().getFullYear(), [Validators.required, Validators.min(1888)]],
       genres: [''], // We will split commas into an array on submit
+      platform: [''],
       posterUrl: [''],
       type: [''],
       status: ['watchlist', Validators.required],
