@@ -18,6 +18,24 @@ export class MainPage {
 
   private router = inject(Router);
 
+  Movie: boolean = true;
+  Series: boolean = true;
+
+  filterAll() {
+    this.Movie = true;
+    this.Series = true;
+  }
+
+  filterMovie() {
+    this.Movie = true;
+    this.Series = false;
+  }
+
+  filterSeries() {
+    this.Movie = false;
+    this.Series = true;
+  }
+
   constructor(private auth: Auth, private movie: Movie) {
       this.movie.getStatusMovie("watchlist").subscribe({
       next: (data) => {
