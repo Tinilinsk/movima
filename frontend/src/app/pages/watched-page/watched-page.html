@@ -27,15 +27,15 @@
 
   <!-- TABS -->
   <div class="tabs">
-    <button class="tab active">All</button>
-    <button class="tab">
+    <button class="tab" [class.active]="Series && Movie" (click)="filterAll()">All</button>
+    <button class="tab" [class.active]="!Series && Movie" (click)="filterMovie()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="2" y="2" width="20" height="20" rx="2"/><line x1="7" y1="2" x2="7" y2="22"/>
         <line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/>
       </svg>
       Movies
     </button>
-    <button class="tab">
+    <button class="tab" [class.active]="Series && !Movie" (click)="filterSeries()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/>
       </svg>
@@ -46,7 +46,8 @@
   <!-- MOVIE GRID -->
   <div class="movie-grid">
     @for (movie of movies(); track movie.id) {
-      <div class="movie-card">
+      @if (Movie && movie.type === "movie") {
+        <div class="movie-card">
         <div class="poster-wrapper">
           @if (movie.posterUrl) {
             <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster" />
@@ -75,6 +76,38 @@
           </div>
         </div>
       </div>
+      }
+      @if (Series && movie.type === "series") {
+        <div class="movie-card">
+        <div class="poster-wrapper">
+          @if (movie.posterUrl) {
+            <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster" />
+          } @else {
+            <div class="no-poster">🎬</div>
+          }
+          <div class="card-top-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="2"/><line x1="7" y1="2" x2="7" y2="22"/>
+              <line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/>
+            </svg>
+            {{movie.type}}
+          </div>
+          <div class="card-overlay">
+            <h3 class="card-title">{{ movie.title }}</h3>
+            <div class="card-meta">
+              @for (genre of movie.genres; track genre) {
+                <span>{{ genre }}</span>
+              }
+            </div>
+            @if (movie.rating) {
+              <span class="priority-badge high">{{ movie.rating }}/10</span>
+            } @else {
+              <span class="priority-badge medium">{{ movie.status }}</span>
+            }
+          </div>
+        </div>
+      </div>
+      }
     } @empty {
       <div class="empty-state">
         <p>No movies found. Start building your collection!</p>

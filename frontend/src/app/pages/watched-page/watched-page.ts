@@ -15,6 +15,24 @@ export class WatchedPage {
 
   private router = inject(Router);
 
+  Movie: boolean = true;
+  Series: boolean = true;
+
+  filterAll() {
+    this.Movie = true;
+    this.Series = true;
+  }
+
+  filterMovie() {
+    this.Movie = true;
+    this.Series = false;
+  }
+
+  filterSeries() {
+    this.Movie = false;
+    this.Series = true;
+  }
+
   constructor(private movie: Movie) {
     this.movie.getStatusMovie("watched").subscribe({
       next: (data) => {
