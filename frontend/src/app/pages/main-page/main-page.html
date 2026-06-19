@@ -28,15 +28,15 @@
 
   <!-- TABS -->
   <div class="tabs">
-    <button class="tab active" (click)="filterAll()">All</button>
-    <button class="tab" (click)="filterMovie()">
+    <button class="tab" [class.active]="Series && Movie" (click)="filterAll()">All</button>
+    <button class="tab" [class.active]="Movie && !Series" (click)="filterMovie()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="2" y="2" width="20" height="20" rx="2"/><line x1="7" y1="2" x2="7" y2="22"/>
         <line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/>
       </svg>
       Movies
     </button>
-    <button class="tab" (click)="filterSeries()">
+    <button class="tab" [class.active]="Series && !Movie" (click)="filterSeries()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/>
       </svg>
