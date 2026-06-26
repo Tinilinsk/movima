@@ -48,7 +48,7 @@
   <div class="movie-grid">
     @for (movie of movies(); track movie.id) {
       @if (Movie && movie.type === "movie") {
-              <div class="movie-card">
+        <div class="movie-card" (click)="goToMovie(movie.id)">
         <div class="poster-wrapper">
           @if (movie.posterUrl) {
             <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster" />
@@ -78,7 +78,7 @@
         </div>
       </div>
       } @else if (Series && movie.type === "series") {
-              <div class="movie-card">
+              <div class="movie-card" (click)="goToMovie(movie.id)">
         <div class="poster-wrapper">
           @if (movie.posterUrl) {
             <img [src]="movie.posterUrl" [alt]="movie.title" class="movie-poster" />

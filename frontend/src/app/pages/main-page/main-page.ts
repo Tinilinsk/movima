@@ -36,6 +36,10 @@ export class MainPage {
     this.Series = true;
   }
 
+  goToMovie(id: string) {
+  this.router.navigate(['/movies', id]);
+}
+
   constructor(private auth: Auth, private movie: Movie) {
       this.movie.getStatusMovie("watchlist").subscribe({
       next: (data) => {
