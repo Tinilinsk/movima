@@ -23,7 +23,7 @@ public class MovieController {
         return movieService.getAll(status, genre);
     }
 
-    @GetMapping("item/{id}")
+    @GetMapping("/{id}")
     public Movie getById(@PathVariable String id) {
         return movieService.getById(id);
     }
@@ -34,13 +34,13 @@ public class MovieController {
         return movieService.create(request);
     }
 
-    @PutMapping("item/{id}")
+    @PutMapping("/{id}")
     public Movie update(@PathVariable String id,
                         @RequestBody MovieRequest request) {
         return movieService.update(id, request);
     }
 
-    @DeleteMapping("item/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id) {
         movieService.delete(id);
