@@ -22,4 +22,15 @@ export class Movie {
     return this.http.get<any[]>(`${this.url}?status=${param}`)
   }
   
+  getById(id: string) {
+    return this.http.get<any>(`${this.url}/${id}`)
+  }
+
+  delete(id: string) {
+    return this.http.delete(`${this.url}/${id}`)
+  }
+
+  update(id: string, data: any) {
+    return this.http.put(`${this.url}/${id}`, data)
+  }
 }
