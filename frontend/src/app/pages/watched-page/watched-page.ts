@@ -33,6 +33,10 @@ export class WatchedPage {
     this.Series = true;
   }
 
+    goToMovie(id: string) {
+      this.router.navigate(['/movies', id]);
+    }
+
   constructor(private movie: Movie) {
     this.movie.getStatusMovie("watched").subscribe({
       next: (data) => {
