@@ -7,10 +7,39 @@
   </div>
 
   <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" class="sheet-body">
-    <div class="form-group">
-      <label>Movie Title *</label>
-      <input type="text" formControlName="title" placeholder="e.g., Inception" />
+    <div class="form-group search-group">
+  <label>Movie Title *</label>
+  <input
+    type="text"
+    formControlName="title"
+    placeholder="Search or type title..."
+    (input)="onTitleInput($event)"
+    (blur)="closeDropdown()"
+    autocomplete="off" />
+
+  <!-- Выпадающий список -->
+  @if (showDropdown) {
+    <div class="tmdb-dropdown">
+      @for (result of searchResults; track result.id) {
+        <div class="tmdb-item" (click)="selectResult(result)">
+          <img
+            [src]="result.poster_path
+              ? 'https://image.tmdb.org/t/p/w92' + result.poster_path
+              : ''"
+            [alt]="tmdb.getTitle(result)"
+            class="tmdb-poster"
+            onerror="this.style.display='none'" />
+          <div class="tmdb-info">
+            <span class="tmdb-title">{{ tmdb.getTitle(result) }}</span>
+            <span class="tmdb-year">
+              {{ tmdb.getYear(result) }} · {{ tmdb.getType(result) }}
+            </span>
+          </div>
+        </div>
+      }
     </div>
+  }
+</div>
 
     <div class="form-row">
       <div class="form-group">
